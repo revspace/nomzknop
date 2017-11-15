@@ -14,7 +14,7 @@
 #define WIFI_PASS ""
 
 #define MQTT_HOST "mosquitto.space.revspace.nl"
-#define MQTT_TOPIC "revspace/button/testknop"
+#define MQTT_TOPIC "revspace/button/nomz"
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(14, PIN_LEDS, NEO_GRBW + NEO_KHZ800);
 WiFiClient espClient;
