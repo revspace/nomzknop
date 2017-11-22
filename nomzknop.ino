@@ -50,12 +50,24 @@ void setup() {
 }
 
 void reconnect() {
+  int connect_counter = 0;
+  strip.setPixelColor(0, 255, 0, 0);
+  strip.setPixelColor(1, 255, 0, 0);
+  strip.setPixelColor(2, 255, 0, 0);
+  strip.setPixelColor(3, 255, 0, 0);
+  strip.setPixelColor(4, 0, 0, 0);
+  strip.show();
   while (!client.connected()) {
     Serial.println("Connecting to MQTT...");
     // Attempt to connect
     if (client.connect("nomzknop")) {
       Serial.println("Connected");
     } else {
+      connect_counter++;
+      if(connect_counter > 3) {
+        Serial.println("Failed >3 times, restarting");
+        ESP.restart();
+      }
       Serial.print("failed, rc=");
       Serial.print(client.state());
       Serial.println(" try again in 2 seconds");
@@ -149,6 +161,9 @@ void loop() {
       ESP.restart();
     }
   }
+  Serial.print("Alive for ");
+  Serial.print(millis()/1000);
+  Serial.println(" seconds");
 }
 
 // Input a value 0 to 255 to get a color value.
