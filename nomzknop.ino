@@ -98,9 +98,7 @@ void loop() {
       Serial.println("NOMZ! Posting on mqtt...");
       String mqtt_text = "lekker! ";
       mqtt_text += millis();
-      char mqtt_char[mqtt_text.length()+1];
-      mqtt_text.toCharArray(mqtt_char, mqtt_text.length()+1);
-      client.publish(MQTT_TOPIC, mqtt_char);
+      client.publish(MQTT_TOPIC, mqtt_text.c_str());
       for(int i=15; i>0; i--) {
         for(int n=5; n>0; n--) {
           strip.setPixelColor(0, 0, 0, 255);
