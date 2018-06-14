@@ -79,7 +79,6 @@ void reconnect() {
 
 void loop() {
   uint32_t wheelVal;
-  int redVal, greenVal, blueVal;
   for(int j=0; j<256; j++) { // 5 cycles of all colors on wheel
     for(int i=0; i< strip.numPixels(); i++) {
       wheelVal = Wheel(((i * 256 / strip.numPixels()) + j) & 255);
