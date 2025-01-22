@@ -3,6 +3,8 @@
 #include <WiFiClient.h>
 #include <PubSubClient.h>
 
+#include "config.h"
+
 #define PIN_LEDS D5
 #define PIN_KNOP D6
 

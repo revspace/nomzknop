@@ -1,0 +1,5 @@
+#define WIFI_SSID "revspace-dingen"
+#define WIFI_PASS "..."
+
+#define MQTT_HOST "mosquitto.space.revspace.nl"
+#define MQTT_TOPIC "revspace/button/nomz"
